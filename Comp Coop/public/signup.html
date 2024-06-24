@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="signup.css">
+    <script src="javascripts/signup.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    <meta name="google-signin-client_id"
+        content="139932409549-jdaqdpk9i7r2cfnus55ir46tl14fmbm4.apps.googleusercontent.com">
+
+    <title>Sign Up</title>
+</head>
+
+<body>
+    <div class="signup-container">
+        <div class="SignUp">
+            <form class="signUp-box">
+                <a href="/homepage.html"><img src="images/WebPageLogo.png" alt="logo" height="150 "></a>
+                <h3>Sign Up</h3>
+
+                </br>
+
+                <div id="g_id_onload"
+                    data-client_id="139932409549-jdaqdpk9i7r2cfnus55ir46tl14fmbm4.apps.googleusercontent.com"
+                    data-context="signup" data-ux_mode="popup" data-callback="do_google_signup"
+                    data-auto_prompt="false">
+                </div>
+
+                <div class="g_id_signin center-google-btn" data-type="standard" data-shape="rectangular"
+                    data-theme="filled_black" data-text="signup_with" data-size="large" data-logo_alignment="left">
+                </div>
+
+                <div class="or-container">
+                    <span class="or-text">OR</span>
+                </div>
+
+                <div class="firstName_input">
+                    <label for="firstName_val">Enter First Name:</label>
+                    <input type="text" id="firstName_val" class="form-control" placeholder="Enter First Name">
+                </div>
+
+                <br>
+
+                <div class="lastName_input">
+                    <label for="lastName_val">Enter Last Name:</label>
+                    <input type="text" id="lastName_val" class="form-control" placeholder="Enter Last Name">
+                </div>
+
+                <div class="email_input">
+                    <label for="email_val">Email:</label>
+                    <input type="email" id="email_val" class="form-control" placeholder="Enter Email">
+                </div>
+
+                <div class="password_input">
+                    <label for="password_val">Password (more than 8 characters): </label>
+                    <input type="password" id="password_val" class="form-control" placeholder="Enter Password">
+                </div>
+
+                <div class="password-confirm">
+                    <label for="password_val">Confirm Password:</label>
+                    <input type="password" id="passwordVal" class="form-control" placeholder="Rewrite Password">
+                </div>
+
+                <div class="Signup_role">
+                    <p>I am signing up to be a:</p>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" value="1"
+                            autocomplete="off" checked>
+                        <label class="btn btn-outline-primary" for="btnradio1">User</label>
+
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" value="2"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary" for="btnradio2">Manager</label>
+
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" value="3"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary" for="btnradio3">System Admin</label>
+                    </div>
+                </div>
+
+                <br>
+
+                <input type="checkbox" id="TCs" name="T&amp;Cs" value="T&amp;Cs">
+                <label for="T&amp;Cs"> I have read and agree to the <a href="#" class="terms-link" id="termsLink">Terms
+                        and Conditions</a></label>
+
+                <br>
+                <br>
+
+                <div class="btn-SignUp">
+                    <button type="button" class="btn btn-outline-secondary" onclick="signup()">Sign Up!</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="termsModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeTerms()">&times;</span>
+            <h2>Terms and Conditions</h2>
+            <p>Welcome to Compassion Coop! By signing up, you agree to the following terms and conditions:</p>
+            <ul>
+                <li>You will volunteer your time and effort to help our community initiatives.</li>
+                <li>You will conduct yourself in a respectful and professional manner.</li>
+                <li>You will adhere to all safety guidelines and instructions provided by Compassion Coop.</li>
+                <li>You understand that your participation is voluntary and you can opt-out at any time.</li>
+                <li>You will not hold Compassion Coop liable for any personal injury or loss incurred during your
+                    volunteer activities.</li>
+            </ul>
+            <p>Thank you for your commitment to making a difference!</p>
+            <button class="btn btn-outline-secondary" type="button" onclick="closeTerms()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('termsLink').addEventListener('click', function (event) {
+            event.preventDefault();
+            document.getElementById('termsModal').style.display = 'block';
+        });
+
+
+        function do_google_signup(response) {
+
+            // Sends the login token provided by google to the server for verification using an AJAX request
+
+            console.log("siiiiiiiiingggg", response);
+
+
+
+
+            // Setup AJAX request
+            fetch('/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(response)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Logged In with Google successfully');
+                    } else {
+                        alert('Google Account already exists, please log in.');
+
+                        // No need to abort in fetch, simply handle the error
+                    }
+                    location.href = '/login.html';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+
+        }
+
+        function closeTerms() {
+            document.getElementById('termsModal').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

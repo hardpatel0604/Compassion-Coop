@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Compassion Coop</title>
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="admin.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="javascripts/admin.js"></script>
+</head>
+
+<body>
+  <div class="header">
+    <div class="logo">
+      <a href="/homepage.html"><img src="images/WebPageLogo.png" alt="logo"></a>
+      <div class="company-name">
+        <span class="compassion">Compassion</span>
+        <span class="coop">Coop</span>
+      </div>
+    </div>
+
+    <div class="navigation-container">
+      <div class="navigation">
+        <ul>
+          <li><a href="/aboutus.html">About Us</a></li>
+          <li><a href="/events.html">Events</a></li>
+          <li><a href="/work.html">How We Work</a></li>
+
+          <li class="branches-dropdown">
+            <a href="#Branches">Branches</a>
+            <div class="branches-dropdown-content" id="branchName">
+              <a v-for="branch in branches" :key="branch" @click="storeBranchInfo(branch)"
+                href="/branch.html">{{ branch.name }}</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="nav-dropdown">
+      <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="images/WebPageLogo.png" width="16" height="16" alt="Profile Icon" class="profile_icon">
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#AboutUs"><span><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                height="16" fill="currentColor" class="bi bi-person-circle dropdown_icon" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                <path fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+              </svg></span> About Us</a></li>
+        <li><a class="dropdown-item" href="/events.html"><span><svg
+                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-person-circle dropdown_icon" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                <path fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+              </svg></span>Events</a></li>
+        <li><a class="dropdown-item" href="#HowWeWork"><span><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                height="16" fill="currentColor" class="bi bi-person-circle dropdown_icon" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                <path fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+              </svg></span>How We Work</a></li>
+        <li><a class="dropdown-item" href="#SignUp"><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-person-circle dropdown_icon" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                <path fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+              </svg></span>Sign up to our Newsletter!</a></li>
+      </ul>
+    </div>
+
+    <div class="dropdown">
+      <button class="btn btn-outline-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+          class="bi bi-person profile_icon" viewBox="0 0 16 16">
+          <path
+            d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+        </svg>
+      </button>
+      <ul class="dropdown-menu" id="loginDropdown">
+        <li v-if="loggedIn"><a class="dropdown-item" href="/myinfo.html"><span><svg
+                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-person-circle dropdown_icon" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                <path fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s3.516.68 4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+              </svg></span> Profile</a></li>
+        <li v-if="loggedIn && isSystemAdmin"><a class="dropdown-item" href="/admin.html"><span><svg
+                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-person-circle dropdown_icon" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                <path fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+              </svg></span> Sign Up Requests</a></li>
+        <li v-if="loggedIn && isSystemAdmin"><a class="dropdown-item"
+            href="/myinfo.html"><span><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                height="16" fill="currentColor" class="bi bi-person-circle dropdown_icon" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                <path fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+              </svg></span> Manage My Users</a></li>
+        <li v-if="!loggedIn"><a class="dropdown-item" href="/signup.html"><span><svg
+                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-person-circle dropdown_icon" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                <path fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+              </svg></span>Sign Up</a></li>
+        <li v-if="!loggedIn"><a class="dropdown-item" href="/login.html"><span><svg
+                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-person-circle dropdown_icon" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                <path fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+              </svg></span>Login</a></li>
+        <li v-if="loggedIn"><button class="dropdown-item" type="button" @click="logout"> <span><svg
+                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-box-arrow-right dropdown_icon" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z" />
+                <path fill-rule="evenodd"
+                  d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
+              </svg></span> Logout</button></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="requests">
+    <div class="req-container">
+      <h1>System Admin</h1>
+
+      <div class="req-display" id="req_div">
+        <div v-for="(request, index) in requests" :key="index" class="req-box">
+          <div class="req-details">
+            <p class="line"> <b> {{ request.email }} </b> {{ request.user_type }}</p>
+            <div class="btn-container">
+              <div class="btn-group">
+                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                  <div class="btn-group" role="group" v-if="request.user_type !== 'System Admin'">
+                    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      Accept
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                      <li>
+                        <a class="dropdown-item" href="#" @click="approveRequest(request.request_id, 1)">
+                          Adelaide Hills Branch
+                        </a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#" @click="approveRequest(request.request_id, 2)">
+                          Port Willunga Branch
+                        </a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#" @click="approveRequest(request.request_id, 3)">
+                          Barossa Branch
+                        </a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#" @click="approveRequest(request.request_id, 4)">
+                          Adelaide Branch
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <button v-if="request.user_type === 'System Admin'" type="button" class="btn btn-primary" @click="approveRequest(request.request_id, 0)">Accept</button>
+                </div>
+              </div>
+              <button type="button" class="btn btn-outline-primary" id="deny-btn" @click="denyRequest(request.request_id)">Deny</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    new Vue({
+  el: '#req_div',
+  data: {
+    requests: []
+  },
+  created() {
+    this.fetchPendingRequests();
+  },
+  methods: {
+    fetchPendingRequests() {
+      fetch('/pending-requests')
+        .then(response => response.json())
+        .then(data => {
+          this.requests = data;
+        })
+        .catch(error => {
+          console.error('Error fetching pending requests:', error);
+        });
+    },
+    approveRequest(requestId, branchId) {
+  // Check if the user_type is 'System Admin'
+  if (branchId === 0) {
+    // Handle System Admin request without branchId
+    fetch(`/approve-request/${requestId}`, {
+      method: 'POST'
+    })
+    .then(response => {
+      if (response.ok) {
+        // Remove the approved request from the list
+        this.requests = this.requests.filter(request => request.request_id !== requestId);
+        alert('Request approved successfully!');
+      } else {
+        alert('Failed to approve the request. Please try again.');
+      }
+    })
+    .catch(error => {
+      console.error('Error approving request:', error);
+      alert('An error occurred while approving the request. Please try again.');
+    });
+  } else {
+    // Ensure branchId is provided for other user types
+    if (!branchId) {
+      alert('Please select a branch');
+      return;
+    }
+
+    // Send request to approve with branchId
+    fetch(`/approve-request/${requestId}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ branchId })
+    })
+    .then(response => {
+      if (response.ok) {
+        // Remove the approved request from the list
+        this.requests = this.requests.filter(request => request.request_id !== requestId);
+        alert('Request approved successfully!');
+      } else {
+        alert('Failed to approve the request. Please try again.');
+      }
+    })
+    .catch(error => {
+      console.error('Error approving request:', error);
+      alert('An error occurred while approving the request. Please try again.');
+    });
+  }
+},
+    denyRequest(requestId) {
+      fetch(`/deny-request/${requestId}`, {
+        method: 'DELETE'
+      })
+        .then(response => {
+          if (response.ok) {
+            // Remove the denied request from the list
+            this.requests = this.requests.filter(request => request.request_id !== requestId);
+            alert('Request denied successfully!');
+          } else {
+            alert('Failed to deny the request. Please try again.');
+          }
+        })
+        .catch(error => {
+          console.error('Error denying request:', error);
+          alert('An error occurred while denying the request. Please try again.');
+        });
+    }
+  }
+});
+
+  </script>
+</body>
+
+</html>

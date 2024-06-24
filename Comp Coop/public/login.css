@@ -1,0 +1,70 @@
+body{
+    background-color: #e7d8c0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container{
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 15px;
+    max-width: 500px;
+    width: 100%;
+}
+.login{
+    text-align: center;
+    padding: 20px;
+}
+
+.login-box{
+    text-align: center;
+}
+
+.btn-login{
+    padding:10px;
+    padding-bottom: 22px;
+}
+
+.email_input{
+    padding:20px;
+}
+
+.password_input{
+    padding:20px;
+    margin-top: -10px;
+}
+
+.g_id_signin{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.or-container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.or-container .or-text {
+    position: relative;
+    padding: 0 10px;
+    background: white;
+    z-index: 1;
+}
+
+.or-container::before,
+.or-container::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+    margin: 0 10px;
+}

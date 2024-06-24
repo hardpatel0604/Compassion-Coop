@@ -1,0 +1,80 @@
+
+.footer-widgets-container {
+    padding: 20px 0;
+    background: #fffdfd;
+  }
+
+  .footer-widgets-container ul {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  /* About Widget */
+  .about-widget {
+    padding: 20px;
+  }
+
+  .about-widget p {
+    margin-bottom: 18px;
+  }
+
+  /* Quick Links Widget */
+  .quick-links-widget {
+    padding: 20px;
+  }
+
+  .quick-links-widget .thumbnail-widget li {
+    margin-bottom: 10px;
+  }
+
+  .quick-links-widget .thumbnail-widget li:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Subscribe Widget */
+  .subscribe-widget {
+    padding: 20px;
+  }
+
+  .subscribe-widget a.btn {
+    background-color: #f88008;
+    color: #fff;
+  }
+
+  .subscribe-widget a.btn:hover,
+  .subscribe-widget a.btn:focus,
+  .subscribe-widget a.btn.active {
+    background: #037dff;
+    color: #fff;
+  }
+
+  /* Contact Widget */
+  .contact-widget {
+    padding: 20px;
+  }
+
+  /* Copyright Footer */
+  .footer-copyright {
+    background: #222;
+    padding: 5px 0;
+  }
+
+  .footer-copyright p {
+    color: #969696;
+    margin: 2px 0 0;
+  }
+
+  .footer-copyright .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .footer-copyright .row {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .footer-copyright .col-md-12 {
+    padding-left: 15px;
+    padding-right: 15px;
+  }

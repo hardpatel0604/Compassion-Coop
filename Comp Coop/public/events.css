@@ -1,0 +1,201 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    background-color: #d2d2d2; /* Add background color */
+    margin: 0;
+    padding: 0;
+}
+
+
+.background-image {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    background-image: url("images/top-event-image1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.background-image h1 {
+    z-index: 1;
+    position: relative;
+    top: 40%;
+    left: 18%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-size: 6vw; /* Use viewport width for responsive font size */
+    font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.background-image h2 {
+    z-index: 1;
+    position: absolute;
+    top: 40vh; /* Use viewport height for vertical positioning */
+    left: 20%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-size: 3vw;
+    font-weight: lighter;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.main-content {
+    padding: 10px;
+    background-color: #f5f5f5;
+
+}
+
+.top {
+    text-align: center;
+}
+
+.events-display {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: center; /* Center items horizontally */
+    align-items: flex-start; /* Align items at the top */
+    text-align: center;
+    margin-top: 0px; /* Adjust margin top as needed */
+}
+
+.event-box {
+    display: flex;
+    flex-direction: column; /* Ensure child elements stack vertically */
+    justify-content: space-between; /* Distribute space between elements */
+    width: 300px;
+    padding: 0px;
+    height: 500px;
+    font-weight: 500;
+    text-align: center;
+    margin: 5px; /* Simplify margin settings */
+    border: 0.5px solid grey;
+    background-color: #ffffff;
+}
+
+.event-box:hover{
+    opacity: 0.8;
+}
+
+.filter-event-buttons{
+    display: inline-block;
+    position:relative;
+    padding-top: 20px;
+    padding-right: 10px;
+    padding-left: 8%;
+}
+
+#filter {
+    background-color: darkgoldenrod;
+    color: white;
+    border: none;
+    border-radius: 10px; /* Makes it round */
+    width: 150px; /* Adjust size as needed */
+    height: 30px; /* Adjust size as needed */
+    font-size: 1.2rem; /* Adjust font size as needed */
+    cursor: pointer;
+    display: inline;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hover effect */
+#filter:hover {
+    opacity: 0.9; /* Adjust opacity as needed */
+}
+
+
+.event-image {
+    width: 100%; /* Adjust the width as per your requirement */
+    height: auto;
+    margin-left: 0;
+}
+
+.event-details {
+    padding: 10px;
+    flex: 1;
+}
+
+.event-details h1{
+    font-family: "Montserrat", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.8rem;
+}
+
+.event-details p{
+    font-family: "Montserrat", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: lighter;
+}
+
+.event-box h1 {
+    margin-top: 0;
+}
+
+.button-group {
+    display: flex;
+}
+
+
+.checkbox-container {
+    position: absolute;
+    top: 91%; /* Adjust vertical position */
+    right: 2%; /* Adjust horizontal position */
+    padding: 5px 10px;
+    background-color: #daeaf6;
+    color: #808080;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.checkbox-container input {
+    display: none;
+}
+
+.checkmark {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border-radius: 3px;
+    border: 2px solid #72bfca;
+}
+
+.checkbox-container:hover .checkmark {
+    background-color: #e0e0e0;
+}
+
+.checkbox-container input:checked + .checkmark {
+    background-color: #72bfca;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked + .checkmark:after {
+    display: block;
+}
+
+.checkbox-container .checkmark:after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 10px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.date-box {
+    padding: 5px;
+    font-size: 12px;
+    font-weight: bold;
+  }

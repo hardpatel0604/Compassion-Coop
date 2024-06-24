@@ -1,0 +1,43 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: #000000; /* Add background color */
+    margin: 0;
+    padding: 0;
+}
+
+
+.background-image {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    background-image: url("images/howwework.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.background-image h1 {
+    z-index: 1;
+    position: relative;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-weight: 200;
+    font-size: 6vw; /* Use viewport width for responsive font size */
+    font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.work-text-container{
+    background-color: #FDF4DC;
+    color: black;
+
+}
+
+.work-text {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: justify;
+    padding: 20px;
+  }
